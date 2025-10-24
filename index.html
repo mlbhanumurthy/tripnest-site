@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Booking Landing Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      overflow-x: hidden;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 15px 40px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+    }
+    nav h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      transform: translateZ(0);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+    }
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+    .search-bar {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .search-bar input {
+      padding: 10px;
+      width: 250px;
+      border-radius: 5px;
+      border: none;
+    }
+    .search-bar button {
+      background: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .search-bar button:hover {
+      background: #0097a7;
+    }
+    .packages {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .packages h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      will-change: transform;
+      transform: translateZ(0);
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .card h3 {
+      padding: 15px;
+    }
+    .parallax {
+      background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&auto=format&fit=crop');
+      background-attachment: scroll;
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+      font-size: 1.8rem;
+    }
+    .testimonials {
+      background: #f5f5f5;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .testimonials h2 {
+      margin-bottom: 30px;
+    }
+    .testimonial-container {
+      position: relative;
+      max-width: 700px;
+      margin: auto;
+      overflow: hidden;
+    }
+    .testimonial {
+      display: none;
+      animation: fade 1s ease-in-out;
+    }
+    @keyframes fade {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
+    }
+    .testimonial.active {
+      display: block;
+    }
+    .testimonial p {
+      font-style: italic;
+    }
+    .testimonial span {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .controls {
+      margin-top: 20px;
+    }
+    .controls button {
+      background: #00bcd4;
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 0 5px;
+    }
+    .newsletter {
+      background: #00bcd4;
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+    }
+    .newsletter h2 {
+      margin-bottom: 20px;
+    }
+    .newsletter input {
+      padding: 10px;
+      width: 250px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    .newsletter button {
+      padding: 10px 20px;
+      background: #fff;
+      color: #00bcd4;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .newsletter button:hover {
+      background: #e0f7fa;
+    }
+    .success-msg {
+      margin-top: 15px;
+      font-weight: 600;
+      color: #fff;
+      display: none;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      border-radius: 5px;
+    }
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+    }
+    @media (max-width: 700px) {
+      nav ul { display: none; }
+      nav h1 { font-size: 1.4rem; }
+      .search-bar { flex-direction: column; }
+      .search-bar input { width: 100%; }
+      .hero h2 { font-size: 1.8rem; }
+      .packages h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h1>TripNest</h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#newsletter">Subscribe</a></li>
+    </ul>
+  </nav>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Explore The World With TripNest</h2>
+      <p>Find your perfect destination today!</p>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search Destinations...">
+        <button id="searchBtn">Search</button>
+      </div>
+    </div>
+  </section>
+  <section id="packages" class="packages">
+    <h2>Popular Packages</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&auto=format&fit=crop" alt="Maldives" loading="lazy">
+        <h3>Maldives Getaway</h3>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600&auto=format&fit=crop" alt="Swiss Alps" loading="lazy">
+        <h3>Swiss Alps Adventure</h3>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop" alt="Bali" loading="lazy">
+        <h3>Bali Paradise</h3>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=600&auto=format&fit=crop" alt="Paris" loading="lazy">
+        <h3>Paris Romantic Tour</h3>
+      </div>
+    </div>
+  </section>
+  <section class="parallax">
+    "Travel — it leaves you speechless, then turns you into a storyteller."
+  </section>
+  <section id="testimonials" class="testimonials">
+    <h2>What Our Travelers Say</h2>
+    <div class="testimonial-container">
+      <div class="testimonial active">
+        <p>"The Maldives trip was a dream come true! Excellent service and breathtaking views."</p>
+        <span>- Stephen R</span>
+      </div>
+      <div class="testimonial">
+        <p>"TripNest made booking my Switzerland adventure so easy and stress-free!"</p>
+        <span>- Abhishek S</span>
+      </div>
+      <div class="testimonial">
+        <p>"Loved the Bali package! Highly recommend for solo travelers."</p>
+        <span>- Priyanka M</span>
+      </div>
+    </div>
+    <div class="controls">
+      <button onclick="prevTestimonial()">‹ Prev</button>
+      <button onclick="nextTestimonial()">Next ›</button>
+    </div>
+  </section>
+  <section id="newsletter" class="newsletter">
+    <h2>Subscribe to Our Newsletter</h2>
+    <input type="email" id="emailInput" placeholder="Enter your Email">
+    <button id="subscribeBtn">Subscribe</button>
+    <div id="successMsg" class="success-msg"></div>
+  </section>
+  <footer>
+    © 2025 TripNest. All Rights Reserved.
+  </footer>
+  <script defer>
+    let index = 0;
+    const testimonials = document.querySelectorAll(".testimonial");
+    function showTestimonial(i) {
+      testimonials.forEach(t => t.classList.remove("active"));
+      testimonials[i].classList.add("active");
+    }
+    function nextTestimonial() {
+      index = (index + 1) % testimonials.length;
+      showTestimonial(index);
+    }
+    function prevTestimonial() {
+      index = (index - 1 + testimonials.length) % testimonials.length;
+      showTestimonial(index);
+    }
+    setInterval(nextTestimonial, 4000);
+    document.getElementById("searchBtn").addEventListener("click", () => {
+      const query = document.getElementById("searchInput").value.trim();
+      if (query !== "") {
+        const encoded = encodeURIComponent(query + " travel packages");
+        window.open(`https://www.google.com/travel/search?q=${encoded}`, "_blank");
+      } else {
+        alert("Please Enter a Destination to Search!");
+      }
+    });
+    const emailInput = document.getElementById("emailInput");
+    const subscribeBtn = document.getElementById("subscribeBtn");
+    const successMsg = document.getElementById("successMsg");
+    subscribeBtn.addEventListener("click", () => {
+      const email = emailInput.value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email === "") {
+        successMsg.style.display = "block";
+        successMsg.style.background = "rgba(255,0,0,0.3)";
+        successMsg.textContent = "Please Enter your Email!";
+      } else if (!emailPattern.test(email)) {
+        successMsg.style.display = "block";
+        successMsg.style.background = "rgba(255,165,0,0.3)";
+        successMsg.textContent = "Please Enter a valid Email Address!";
+      } else {
+        successMsg.style.display = "block";
+        successMsg.style.background = "rgba(0,128,0,0.3)";
+        successMsg.textContent = "Thank you for Subscribing!";
+        emailInput.value = "";
+        setTimeout(() => successMsg.style.display = "none", 4000);
+      }
+    });
+  </script>
+</body>
+</html>
