@@ -110,7 +110,7 @@
       position: relative;
       overflow: hidden;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       cursor: pointer;
       transition: transform 0.3s;
     }
@@ -125,17 +125,6 @@
     .card h3 {
       padding: 15px;
       background: #fff;
-    }
-    .card::after {
-      content: "View Package";
-      position: absolute;
-      bottom: 12px;
-      right: 12px;
-      background: #00bcd4;
-      color: #fff;
-      padding: 6px 10px;
-      border-radius: 5px;
-      font-size: 0.8rem;
     }
     .parallax {
       background: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200") center/cover no-repeat;
@@ -203,121 +192,129 @@
       padding: 15px;
       text-align: center;
     }
-    @media(max-width:700px){
-      nav ul { display: none; }
+    @media (max-width: 700px) {
+      nav ul {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
-<nav>
-  <h1>TripNest</h1>
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#packages">Packages</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
-    <li><a href="#newsletter">Subscribe</a></li>
-  </ul>
-</nav>
-<section class="hero">
-  <div class="hero-content">
-    <h2>Explore The World With TripNest</h2>
-    <p>Find your perfect destination today</p>
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search Destination">
-      <button id="searchBtn">Search</button>
+  <nav>
+    <h1>TripNest</h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#newsletter">Subscribe</a></li>
+    </ul>
+  </nav>
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Explore The World With TripNest</h2>
+      <p>Find your perfect destination today</p>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search Destination">
+        <button id="searchBtn">Search</button>
+      </div>
     </div>
-  </div>
-</section>
-<section id="packages" class="packages">
-  <h2>Popular Packages</h2>
-  <div class="grid">
-    <div class="card" data-link="https://www.google.com/travel/search?q=Maldives+travel+packages">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600">
-      <h3>Maldives Getaway</h3>
+  </section>
+  <section id="packages" class="packages">
+    <h2>Popular Packages</h2>
+    <div class="grid">
+      <div class="card" data-link="https://www.google.com/travel/search?q=Maldives+travel+packages">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600">
+        <h3>Maldives Getaway</h3>
+      </div>
+      <div class="card" data-link="https://www.google.com/travel/search?q=Swiss+Alps+travel+packages">
+        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600">
+        <h3>Swiss Alps Adventure</h3>
+      </div>
+      <div class="card" data-link="https://www.google.com/travel/search?q=Bali+travel+packages">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600">
+        <h3>Bali Paradise</h3>
+      </div>
+      <div class="card" data-link="https://www.google.com/travel/search?q=Paris+travel+packages">
+        <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=600">
+        <h3>Paris Romantic Tour</h3>
+      </div>
     </div>
-    <div class="card" data-link="https://www.google.com/travel/search?q=Swiss+Alps+travel+packages">
-      <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=600">
-      <h3>Swiss Alps Adventure</h3>
+  </section>
+  <section class="parallax">
+    “Travel leaves you speechless, then turns you into a storyteller.”
+  </section>
+  <section id="testimonials" class="testimonials">
+    <h2>What Our Travelers Say</h2>
+    <div class="testimonial active">
+      <p>"Maldives trip was unforgettable. Smooth booking!"</p>
+      <span>- Stephen R</span>
     </div>
-    <div class="card" data-link="https://www.google.com/travel/search?q=Bali+travel+packages">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600">
-      <h3>Bali Paradise</h3>
+    <div class="testimonial">
+      <p>"Best experience booking Switzerland through TripNest."</p>
+      <span>- Abhishek S</span>
     </div>
-    <div class="card" data-link="https://www.google.com/travel/search?q=Paris+travel+packages">
-      <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=600">
-      <h3>Paris Romantic Tour</h3>
+    <div class="testimonial">
+      <p>"Perfect Bali package for solo travel."</p>
+      <span>- Priyanka M</span>
     </div>
-  </div>
-</section>
-<section class="parallax">
-  “Travel leaves you speechless, then turns you into a storyteller.”
-</section>
-<section id="testimonials" class="testimonials">
-  <h2>What Our Travelers Say</h2>
-  <div class="testimonial active">
-    <p>"Maldives trip was unforgettable. Smooth booking!"</p>
-    <span>- Stephen R</span>
-  </div>
-  <div class="testimonial">
-    <p>"Best experience booking Switzerland through TripNest."</p>
-    <span>- Abhishek S</span>
-  </div>
-  <div class="testimonial">
-    <p>"Perfect Bali package for solo travel."</p>
-    <span>- Priyanka M</span>
-  </div>
-  <div class="controls">
-    <button onclick="prevTestimonial()">Prev</button>
-    <button onclick="nextTestimonial()">Next</button>
-  </div>
-</section>
-<section id="newsletter" class="newsletter">
-  <h2>Subscribe for Offers</h2>
-  <input type="email" id="emailInput" placeholder="Enter Email">
-  <button id="subscribeBtn">Subscribe</button>
-  <div id="successMsg" class="success-msg"></div>
-</section>
-<footer>
-  © 2025 TripNest. All Rights Reserved.
-</footer>
-<script>
-  document.querySelectorAll(".card").forEach(card => {
-    card.addEventListener("click", () => {
-      window.open(card.dataset.link, "_blank");
+    <div class="controls">
+      <button onclick="prevTestimonial()">Prev</button>
+      <button onclick="nextTestimonial()">Next</button>
+    </div>
+  </section>
+  <section id="newsletter" class="newsletter">
+    <h2>Subscribe for Offers</h2>
+    <input type="email" id="emailInput" placeholder="Enter Email">
+    <button id="subscribeBtn">Subscribe</button>
+    <div id="successMsg" class="success-msg"></div>
+  </section>
+  <footer>
+    © 2025 TripNest. All Rights Reserved.
+  </footer>
+  <script>
+    document.querySelectorAll(".card").forEach(card => {
+      card.addEventListener("click", () => {
+        window.open(card.dataset.link, "_blank");
+      });
     });
-  });
-  document.getElementById("searchBtn").onclick = () => {
-    const q = document.getElementById("searchInput").value.trim();
-    if(q) window.open(`https://www.google.com/travel/search?q=${encodeURIComponent(q)}`, "_blank");
-    else alert("Enter destination");
-  };
-  let index = 0;
-  const testimonials = document.querySelectorAll(".testimonial");
-  function show(i){
-    testimonials.forEach(t => t.classList.remove("active"));
-    testimonials[i].classList.add("active");
-  }
-  function nextTestimonial(){
-    index = (index + 1) % testimonials.length;
-    show(index);
-  }
-  function prevTestimonial(){
-    index = (index - 1 + testimonials.length) % testimonials.length;
-    show(index);
-  }
-  setInterval(nextTestimonial, 4000);
-  document.getElementById("subscribeBtn").onclick = () => {
-    const email = emailInput.value.trim();
-    const msg = document.getElementById("successMsg");
-    if(!email){
-      msg.textContent = "Please enter email";
-      msg.style.display = "block";
-      return;
+    document.getElementById("searchBtn").onclick = () => {
+      const query = document.getElementById("searchInput").value.trim();
+      if (query) {
+        window.open(
+          `https://www.google.com/travel/search?q=${encodeURIComponent(query)}`,
+          "_blank"
+        );
+      } else {
+        alert("Enter destination");
+      }
+    };
+    let index = 0;
+    const testimonials = document.querySelectorAll(".testimonial");
+    function show(i) {
+      testimonials.forEach(t => t.classList.remove("active"));
+      testimonials[i].classList.add("active");
     }
-    msg.textContent = "Subscribed successfully!";
-    msg.style.display = "block";
-    emailInput.value = "";
-  };
-</script>
+    function nextTestimonial() {
+      index = (index + 1) % testimonials.length;
+      show(index);
+    }
+    function prevTestimonial() {
+      index = (index - 1 + testimonials.length) % testimonials.length;
+      show(index);
+    }
+    setInterval(nextTestimonial, 4000);
+    document.getElementById("subscribeBtn").onclick = () => {
+      const email = emailInput.value.trim();
+      const msg = document.getElementById("successMsg");
+      if (!email) {
+        msg.textContent = "Please enter email";
+        msg.style.display = "block";
+        return;
+      }
+      msg.textContent = "Subscribed successfully!";
+      msg.style.display = "block";
+      emailInput.value = "";
+    };
+  </script>
 </body>
 </html>
